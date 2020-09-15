@@ -17,6 +17,17 @@ import { EffectsModule } from '@ngrx/effects';
 import { ProfilesEffects } from './store/effect/profiles.effects';
 import { ProfileListUsingEffectsComponent } from './components/profile-list-using-effects/profile-list-using-effects.component';
 
+// ngrx devtools added here
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { environment } from '../environments/environment'; // Angular CLI environment
+
+// logger added here
+import { storeLogger } from 'ngrx-store-logger';
+export function logger(reducer1: any): any {
+  return storeLogger()(reducer1);
+}
+export const metaReducers = environment.production ? [] : [logger];
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,8 +45,13 @@ import { ProfileListUsingEffectsComponent } from './components/profile-list-usin
 
     StoreModule.forRoot({
       profiles: reducer
+    }, {metaReducers}),
+    EffectsModule.forRoot([ProfilesEffects]),
+    StoreDevtoolsModule.instrument({
+      maxAge: 25, // Retains last 25 states
+      logOnly: environment.production, // Restrict extension to log-only mode
     }),
-    EffectsModule.forRoot([ProfilesEffects])
+    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production })
 
   ],
   providers: [],
