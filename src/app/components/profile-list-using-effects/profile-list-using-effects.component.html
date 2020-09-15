@@ -1,10 +1,5 @@
+<h3>Fetching users using Effect in ngrx</h3>
 <div class="profiles">
-    <div class="search">
-        <mat-form-field class="search__input">
-            <mat-label>Search profile</mat-label>
-            <input matInput placeholder="Enter name">
-        </mat-form-field>
-    </div>
     <mat-card *ngFor="let profile of profiles | async" class="profiles__card">
         <mat-card-header>
             <div mat-card-avatar class="profiles__card__header-image"></div>
