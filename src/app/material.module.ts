@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule } from "@angular/core";
 
 import {
   MatAutocompleteModule,
@@ -32,8 +32,8 @@ import {
   MatTabsModule,
   MatToolbarModule,
   MatTooltipModule,
-  MatTableModule
- } from '@angular/material';
+  MatTableModule,
+} from "@angular/material";
 
 @NgModule({
   declarations: [],
@@ -69,7 +69,7 @@ import {
     MatTabsModule,
     MatToolbarModule,
     MatTooltipModule,
-    MatTableModule
+    MatTableModule,
   ],
   exports: [
     MatAutocompleteModule,
@@ -103,7 +103,7 @@ import {
     MatTabsModule,
     MatToolbarModule,
     MatTooltipModule,
-    MatTableModule
-  ]
+    MatTableModule,
+  ],
 })
-export class MaterialModule { }
+export class MaterialModule {}

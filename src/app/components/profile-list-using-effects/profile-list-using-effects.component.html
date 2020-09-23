@@ -1,10 +1,16 @@
 <h3>Fetching users using Effect in ngrx</h3>
 <div class="profiles">
-    <mat-card *ngFor="let profile of profiles | async" class="profiles__card">
-        <mat-card-header>
-            <div mat-card-avatar class="profiles__card__header-image"></div>
-            <mat-card-title>{{profile.firstName}}</mat-card-title>
-        </mat-card-header>
-        <img mat-card-image class="profiles__card__image" src="{{profile.picture}}" alt="">
-    </mat-card>
+  <mat-card *ngFor="let profile of profiles | async" class="profiles__card">
+    <mat-card-header>
+      <div mat-card-avatar class="profiles__card__header-image"></div>
+      <mat-card-title>{{ profile.firstName }}</mat-card-title>
+    </mat-card-header>
+    <img
+      mat-card-image
+      class="profiles__card__image"
+      src="{{ profile.picture }}"
+      alt=""
+      (click)="navigate($event, profile.id)"
+    />
+  </mat-card>
 </div>

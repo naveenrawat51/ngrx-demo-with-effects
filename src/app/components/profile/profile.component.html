@@ -1,13 +1,16 @@
-<div class="profile">
-    <mat-card class="profile__card">
-        <mat-card-header>
-            <mat-card-title>Shiba Inu</mat-card-title>
-        </mat-card-header>
-        <img mat-card-image class="profile__card__image"
-            src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
-        <mat-card-content>
-            <p>Email: abc@gmail.com</p>
-            <p>Phone: 123312321</p>
-        </mat-card-content>
-    </mat-card>
+<div class="profile" *ngIf="profile$ | async as profile">
+  <mat-card class="profile__card">
+    <mat-card-header>
+      <mat-card-title>{{ profile.firstName }}</mat-card-title>
+    </mat-card-header>
+    <img
+      mat-card-image
+      class="profile__card__image"
+      src="{{ profile.picture }}"
+      alt="Photo of a Shiba Inu"
+    />
+    <mat-card-content>
+      <p>{{ profile.email }}</p>
+    </mat-card-content>
+  </mat-card>
 </div>
